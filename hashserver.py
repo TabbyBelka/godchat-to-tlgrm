@@ -26,7 +26,11 @@ def sendMessage(chatid, textmessage):
             elif httperror.status != 200:
                 print("common httperror")
                 time.sleep(1)
-            continue;
+            continue
+        except error.URLError:
+            print("network error")
+            time.sleep(5)
+            continue
         time.sleep(0.2)
         break
 
