@@ -8,7 +8,7 @@ config.read(os.getenv('FRONTEND_CONFIG'))
 config.read(os.getenv('BACKEND_CONFIG'))
 config.read(os.getenv('DUNGEON_CONFIG'))
 
-dungRegex = re.compile("(^|\D):(\d{2})(\D|$)")
+dungRegex = re.compile("(^|\D):([0-5]\d)(\D|$)")
 url = "https://api.telegram.org/bot" + config['bot']['token'] + "/sendMessage"
 chatID=config['chat']['commonID']
 dungChatID=config['chat']['dungID']
