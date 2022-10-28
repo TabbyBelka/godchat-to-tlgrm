@@ -53,7 +53,7 @@
     if (mid <= lastmid) return;
     lastmid = mid;
     var d = new Date(time);
-    MessageQueue.push([d.getTime()/1000-d.getTimezoneOffset()*60, user, message]);
+    MessageQueue.push([d.getTime()/1000-d.getTimezoneOffset()*60, user, message, mid]);
   };
   var handleAjaxResult = function(res) {
     res.msg.forEach(function(e) {
