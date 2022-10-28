@@ -19,7 +19,10 @@ else:
             print(msgs, file=f)
     with open(config['paths']['message_pipe'], "w", encoding="utf-8") as f:
         for t in msgs:
-            if len(t)==3 and type(t[0]) is int and type(t[1]) is str and type(t[2]) is str:
+            if len(t) in (3,4) and (type(t[0]) is int and
+                                    type(t[1]) is str and
+                                    type(t[2]) is str and
+                                    (len(t)<4 or type(t[3]) is int)):
                 tt = json.dumps(t)
                 #FIXME check PIPE_BUF
                 f.write(u'\n'.join( (str(len(tt)), tt) ))

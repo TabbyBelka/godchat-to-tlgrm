@@ -12,8 +12,8 @@ fi
 if ((CDTIMER < 10)); then
   CDTIMER=0$DTIMER 	
 fi
-QUERY_STRING="token=testtoken&text=[[$FTIME,\"Belka\",\"Hi!\"], [$STIME,\"Belka\",\":$CDTIMER!\"],[$STIME,\"Belka\",\":$DTIMER!\"], [$TTIME,\"Belka\",\"Hi!\"], [$FOTIME,\"B\", \"отменА:$CDTIMER\"]]" FRONTEND_CONFIG=frontendconfig.test.cfg python3 mes.py
-if grep -q "^\[$FTIME, \"Belka\", \"Hi!\"\]" pipe; then
+QUERY_STRING="token=testtoken&text=[[$FTIME,\"Belka\",\"Hi!\", 0], [$STIME,\"Belka\",\":$CDTIMER!\"],[$STIME,\"Belka\",\":$DTIMER!\"], [$TTIME,\"Belka\",\"Hi!\"], [$FOTIME,\"B\", \"отменА:$CDTIMER\"]]" FRONTEND_CONFIG=frontendconfig.test.cfg python3 mes.py
+if grep -q "^\[$FTIME, \"Belka\", \"Hi!\", 0\]" pipe; then
   echo 'success!';
 #  rm pipe log
 else
