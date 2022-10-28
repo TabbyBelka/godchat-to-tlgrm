@@ -83,11 +83,11 @@ while True:
             except ValueError:
                 break;
             message = tuple(json.loads(f.read(numb)))
-            if message[0]>lasttime or message[0]==lasttime and message[1:] not in messages:
+            if message[0]>lasttime or message[0]==lasttime and message[1:3] not in messages:
                 if message[0]>lasttime:
                     messages=set()
                     lasttime = message[0]
-                messages.add(message[1:])
+                messages.add(message[1:3])
                 textmessage = time.strftime("[%d.%m %H:%M] ", time.gmtime(message[0]))+message[1]+': '+message[2]
                 sendMessage(chatID, textmessage)
 
